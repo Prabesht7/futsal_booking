@@ -5,6 +5,10 @@ class Booking < ApplicationRecord
     self.total_time = start_time + hours.hours
   end
 
+  def status_label
+    status ? 'Booked' : 'Pending'
+  end
+
   private
 
   def validate_start_time

@@ -34,7 +34,7 @@
 
     <div class="field">
       <%= form.label :start_time %>
-      <%= form.datetime_select :start_time, default: Time.current.beginning_of_day + 7.hours, include_seconds: false, discard_minute: true, discard_second: true %>
+      <%= form.datetime_select :start_time, default: Time.current.beginning_of_day + 7.hours, include_seconds: false, discard_year: true, discard_minute: true, discard_second: true %>
     </div>
 
     <div class="field">

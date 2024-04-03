@@ -19,6 +19,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_31_100640) do
     t.datetime "start_time"
     t.integer "hours"
     t.datetime "total_time"
+    t.boolean "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -8,6 +8,7 @@ class CreateBookings < ActiveRecord::Migration[7.0]
       t.datetime :start_time
       t.integer :hours
       t.datetime :total_time
+      t.boolean :status
 
       t.timestamps
     end
