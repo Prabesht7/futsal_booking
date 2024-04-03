@@ -14,32 +14,32 @@
 
     <div class="field">
       <%= form.label :first_name %>
-      <%= form.text_field :first_name %>
+      <%= form.text_field :first_name, required: true %>
     </div>
 
     <div class="field">
       <%= form.label :last_name %>
-      <%= form.text_field :last_name %>
+      <%= form.text_field :last_name, required: true %>
     </div>
 
     <div class="field">
       <%= form.label :phone %>
-      <%= form.text_field :phone %>
+      <%= form.text_field :phone, required: true %>
     </div>
 
     <div class="field">
       <%= form.label :email %>
-      <%= form.text_field :email %>
+      <%= form.text_field :email, required: true %>
     </div>
 
     <div class="field">
       <%= form.label :start_time %>
-      <%= form.datetime_select :start_time, default: Time.current.beginning_of_day + 7.hours, include_seconds: false, discard_year: true, discard_minute: true, discard_second: true %>
+      <%= form.datetime_select :start_time, default: Time.current.beginning_of_day + 7.hours, include_seconds: false, discard_year: true, discard_minute: true, discard_second: true, required: true %>
     </div>
 
     <div class="field">
       <%= form.label :hours %>
-      <%= form.number_field :hours, min: 1 %>
+      <%= form.number_field :hours, min: 1, required: true %>
     </div>
 
     <div class="actions">
