@@ -1,13 +1,54 @@
-<h1>Booking Details</h1>
+<div class="booking-details">
+  <h1>Booking Details</h1>
 
-<p><strong>ID:</strong> <%= @booking.id %></p>
-<p><strong>First Name:</strong> <%= @booking.first_name %></p>
-<p><strong>Last Name:</strong> <%= @booking.last_name %></p>
-<p><strong>Phone:</strong> <%= @booking.phone %></p>
-<p><strong>Email:</strong> <%= @booking.email %></p>
-<p><strong>Start Time:</strong> <%= @booking.start_time.strftime("%Y-%m-%d %H:%M:%S") %></p>
-<p><strong>Hours:</strong> <%= @booking.hours %></p>
-<p><strong>Total Time:</strong> <%= @booking.total_time.strftime("%Y-%m-%d %H:%M:%S") %></p>
+  <p><strong>ID:</strong> <%= @booking.id %></p>
+  <p><strong>First Name:</strong> <%= @booking.first_name %></p>
+  <p><strong>Last Name:</strong> <%= @booking.last_name %></p>
+  <p><strong>Phone:</strong> <%= @booking.phone %></p>
+  <p><strong>Email:</strong> <%= @booking.email %></p>
+  <p><strong>Start Time:</strong> <%= @booking.start_time.strftime("%Y-%m-%d %H:%M:%S") %></p>
+  <p><strong>Hours:</strong> <%= @booking.hours %></p>
+  <p><strong>Total Time:</strong> <%= @booking.total_time.strftime("%Y-%m-%d %H:%M:%S") %></p>
 
-<%= link_to 'Edit', edit_booking_path(@booking) %> |
-<%= link_to 'Back', bookings_path %>
+  <div class="booking-details-links">
+    <%= link_to 'Edit', edit_booking_path(@booking) %> |
+    <%= link_to 'Back', bookings_path %>
+  </div>
+</div>
+
+<style>
+    .booking-details {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+
+    .booking-details p {
+        margin-bottom: 10px;
+    }
+
+    .booking-details p strong {
+        font-weight: bold;
+        margin-right: 5px;
+    }
+
+    .booking-details-links {
+        margin-top: 20px;
+    }
+
+    .booking-details-links a {
+        padding: 8px 16px;
+        background-color: #4CAF50;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+    .booking-details-links a:hover {
+        background-color: #45a049;
+    }
+</style>
+

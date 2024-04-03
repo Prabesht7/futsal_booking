@@ -12,12 +12,19 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(booking_params)
-    @booking.calculate_total_time
-    if @booking.save
-      redirect_to @booking
+    existing_booking = Booking.find_by(booking_params.slice(:first_name, :last_name, :phone, :email, :start_time, :hours))
+
+    if existing_booking
+      flash[:alert] = "A booking with the same details already exists."
+      redirect_to existing_booking
     else
-      render 'new'
+      @booking = Booking.new(booking_params)
+      @booking.calculate_total_time
+      if @booking.save
+        redirect_to @booking
+      else
+        render 'new'
+      end
     end
   end
 
@@ -27,12 +34,20 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
-    @booking.assign_attributes(booking_params)
-    @booking.calculate_total_time
-    if @booking.save
-      redirect_to @booking
+
+    existing_booking = Booking.where.not(id: @booking.id).find_by(booking_params.slice(:first_name, :last_name, :phone, :email, :start_time, :hours))
+
+    if existing_booking
+      flash[:alert] = "A booking with the same details already exists."
+      redirect_to existing_booking
     else
-      render 'edit'
+      @booking.assign_attributes(booking_params)
+      @booking.calculate_total_time
+      if @booking.save
+        redirect_to @booking
+      else
+        render 'edit'
+      end
     end
   end
 
