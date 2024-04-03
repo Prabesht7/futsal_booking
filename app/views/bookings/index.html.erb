@@ -11,7 +11,7 @@
     <th>Start Time</th>
     <th>Hours</th>
     <th>Total Time</th>
-    <th colspan="3"></th>
+    <th colspan="3">Actions</th>
   </tr>
   </thead>
 
@@ -26,12 +26,55 @@
       <td><%= booking.start_time.strftime("%Y-%m-%d %H:%M:%S") %></td>
       <td><%= booking.hours %></td>
       <td><%= booking.total_time.strftime("%Y-%m-%d %H:%M:%S") %></td>
-      <td><%= link_to 'Show', booking %></td>
-      <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
-      <td><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td class="actions">
+        <%= link_to 'Show', booking %>
+        <%= link_to 'Edit', edit_booking_path(booking) %>
+        <%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </td>
     </tr>
   <% end %>
   </tbody>
 </table>
 
-<%= link_to 'New Booking', new_booking_path %>
+<%= link_to 'New Booking', new_booking_path, class: 'new-booking-link' %>
+
+
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    th, td {
+        border: 1px solid #dddddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    .actions {
+        display: flex;
+        gap: 5px;
+    }
+
+    .actions a {
+        padding: 5px 10px;
+        background-color: #4CAF50;
+        color: white;
+        text-decoration: none;
+        border-radius: 3px;
+    }
+
+    .actions a:hover {
+        background-color: #45a049;
+    }
+</style>
+
