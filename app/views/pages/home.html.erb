@@ -35,13 +35,17 @@
       font-size: 24px;
       font-weight: bold;
     }
+    .nav item{
+      font-weight: bold;
+    }
+
   </style>
 </head>
 <body>
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="#">Your Website</a>
+    <a class="navbar-brand" href="#">Shantinagar Futsal</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
       aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -53,7 +57,7 @@
             <a class="nav-link" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Bookings</a>
+            <a class="nav-link" href="/bookings/1">Bookings</a>
           </li>
            <li class="nav-item">
             <a class="nav-link" href="#">Registration</a>
@@ -93,11 +97,12 @@
   <div class="container">
     
     <% if current_user %>
-
+   
+ <a class="nav-link" href="/bookings/1">Bookings</a>
     <% else %>
-    <h1 class="mt-5">Welcome to Your Website</h1>
-    <p class="lead">This is the homepage of your website. You can add any content you like here.</p>
-      <p>Get started by signing up or logging in.</p>
+    <h1 class="mt-5">WELCOME TO OUR WEBSITE</h1>
+    <p class="lead">LETS PLAY FUTSAL</p>
+      <p>GET STARTED BY SIGNING UP AND LOGGING IN </p>
     <% end %>
   </div>
 
@@ -105,5 +110,6 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
+</body> 
 </html>
+
