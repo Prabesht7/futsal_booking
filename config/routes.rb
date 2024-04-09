@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   root 'pages#home'
   devise_for :users
   resources :bookings
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+  # Route for "/aboutus"
+  get '/aboutus', to: 'pages#aboutus'
 
   # Defines the root path route ("/")
   # root "articles#index"
