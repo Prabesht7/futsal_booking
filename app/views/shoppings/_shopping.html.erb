@@ -1,0 +1,31 @@
+<div id="<%= dom_id shopping %>">
+  <p>
+    <strong>Name:</strong>
+    <%= shopping.name %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= shopping.description %>
+  </p>
+
+  <p>
+    <strong>Category:</strong>
+    <%= shopping.category %>
+  </p>
+
+  <p>
+    <strong>Price:</strong>
+    <%= shopping.price %>
+  </p>
+
+  <p>
+    <strong>Image:</strong>
+    <%= image_tag(shopping.image_url(:default)) %>
+  </p>
+
+  <p>
+    <%= button_to 'Add to cart', line_items_path(shopping_id: shopping.id), class: 'button is-warning add-to-cart' %>
+  </p>
+
+</div>

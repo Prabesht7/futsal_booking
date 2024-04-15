@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :line_items
+  resources :carts
+  resources :shoppings
+  resources :e_stores
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'pages#home'
   devise_for :users
