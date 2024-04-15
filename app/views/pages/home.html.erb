@@ -34,9 +34,10 @@
     }
     .container h1,
     .container p {
-      color: white;
+      color: black;
       font-size: 24px;
       font-weight: bold;
+       font-family: 'Comic Sans MS', cursive;
     }
     .nav item{
       font-weight: bold;
@@ -64,7 +65,7 @@
       <ul class="hello navbar-nav mr-auto">
         <% if current_user %>
           <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" href="/home">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/bookings">Bookings</a>

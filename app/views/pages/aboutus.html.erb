@@ -1,77 +1,106 @@
-<!-- app/views/pages/aboutus.html.erb -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Other meta tags and styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Comic Sans MS', cursive; /* Change the font family */
       margin: 0;
       padding: 0;
-      background-color: #f4f4f4;
+      background-color: #f6c492;
+     
+      color: #000000; /* Text color */
     }
 
     header {
-
+      text-align: center; /* Center align the header */
+      padding: 20px;
     }
 
     main {
       max-width: 800px;
       margin: 20px auto;
       padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
     }
 
     section {
       margin-bottom: 30px;
+      flex-basis: 48%;
+       text-align: left; /* Align text to the left */
     }
 
-    h1, h2 {
-      color: #333;
+    h1, h2, h3, h4 { /* Apply the font changes to all headings */
+      font-family: 'Comic Sans MS', cursive; /* Change to a beautiful font */
     }
 
     p {
       line-height: 1.6;
+     
+      font-family: 'Comic Sans MS', cursive; /* Change to a beautiful font */
     }
 
-    footer {
+      footer {
       background-color: #333;
       color: #fff;
       text-align: center;
-      padding: 0px 0;
-      position: fixed;
-      bottom: 0;
+      padding: 1px 0;
       width: 100%;
-      height:50px;
+    }
+
+    img {
+  max-width: 100%;
+  display: block;
+  border-radius: 20px; /* Apply a border radius for a beautiful frame */
+  margin-left: auto; /* Move the image to the right */
+  margin-right: 0; /* Set margin-right to 0 */
+  margin-top: auto; /* Center vertically */
+  margin-bottom: auto; /* Center vertically */
+}
+
+    .team-image {
+      flex-basis: 48%;
+      max-width: 100%;
+  display: block;
+  border-radius: 20px; /* Apply a border radius for a beautiful frame */
+  margin-left: auto; /* Move the image to the right */
+  margin-right: 0; /* Set margin-right to 0 */
+  margin-top: auto; /* Center vertically */
+  margin-bottom: auto; /* Center vertically */
     }
   </style>
 </head>
 <body>
+  
   <header>
     <h1>About Us</h1>
   </header>
   <main>
     <section>
-      <h2>Our Mission</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget tortor vitae purus pulvinar placerat. Sed efficitur felis quis tortor tristique, vel efficitur enim sollicitudin.</p>
+      <h2>About our Futsal</h2>
+      <p>We are here for you to find the best solution for futsal booking. Welcome to Shantingar Futsal, where passion for the game meets community spirit. We are dedicated to providing an exceptional futsal experience for players of all ages and skill levels.</p>
+      <h3>Mission</h3>
+      <p>At Shantingar Futsal, our mission is to promote the love of futsal while fostering teamwork, sportsmanship, and personal development. We strive to create a supportive environment where players can grow both on and off the court.</p>
+      <h4>Achievements</h4>
+      <p>Over the years, Shantingar Futsal has celebrated numerous successes, including championship titles in local tournaments and recognition for our commitment to youth development.</p>
     </section>
-    <section>
-      <h2>Our Team</h2>
-      <ul>
-        <li>John Doe - CEO</li>
-        <li>Jane Smith - CTO</li>
-        <li>Michael Johnson - CFO</li>
-      </ul>
-    </section>
-    <section>
-      <h2>Contact Us</h2>
-      <p>If you have any questions or inquiries, feel free to contact us at <a href="mailto:info@example.com">info@example.com</a>.</p>
+    <section class="team-image">
+      <img src="https://bpazes.com/_next/image?url=https%3A%2F%2Fbpazes-images.s3.ap-south-1.amazonaws.com%2Fbpage-2104%2Fcropped%2Fx2%2Flg%2Fimg_u3pamnCusxu.jpg&w=1920&q=75" alt="Team Image">
     </section>
   </main>
+  <p>Follow us on social media:</p>
+    <p><i class="fab fa-facebook"></i> <a href="https://www.facebook.com/your-futsal-page" style="color: #fff;">Facebook</a></p>
+    <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/your-futsal-page" style="color: #fff;">Instagram</a></p>
+    <p><i class="fab fa-twitter"></i> <a href="https://twitter.com/your-futsal-page" style="color: #fff;">Twitter</a></p>
   <footer>
     <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+    
   </footer>
 </body>
 </html>
