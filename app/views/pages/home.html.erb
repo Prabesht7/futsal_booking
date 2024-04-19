@@ -20,14 +20,21 @@
     .navbar {
       background-color: rgba(0,0,0,0.7); /* Add transparency to navbar */
     }
-    .hello{
-      margin-left:15rem;
+    .navbar-nav {
+      margin-left: 250px;
+      display: flex;
+      justify-content: space-between; /* Push items to left and right */
+      align-items: center; /* Align items vertically */
+    }
+    .navbar-nav .nav-item {
+      display: inline-block;
+      text-align: center;
     }
     .container {
       border-radius: 10px;
       padding: 20px;
       text-align: center;
-      margin-top:10rem;
+      margin-top: 10rem;
       display: flex; /* Use flexbox */
       flex-direction: column; /* Stack children vertically */
       flex: 1; /* Take remaining space */
@@ -37,9 +44,9 @@
       color: black;
       font-size: 24px;
       font-weight: bold;
-       font-family: 'Comic Sans MS', cursive;
+      font-family: 'Comic Sans MS', cursive;
     }
-    .nav item{
+    .nav-item {
       font-weight: bold;
     }
     footer {
@@ -48,8 +55,9 @@
       text-align: center;
       padding: 1px 0;
       width: 100%;
+      position: fixed;
+      bottom: 0;
     }
-
   </style>
 </head>
 <body>
@@ -62,27 +70,26 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="hello navbar-nav mr-auto">
-        <% if current_user %>
-          <li class="nav-item">
-            <a class="nav-link" href="/home">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/bookings">Bookings</a>
-          </li>
-           <li class="nav-item">
-            <a class="nav-link" href="#">Registration</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Shopping</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/aboutus">About Us</a>
-          </li>
-        <% end %>
+      
+      <% if current_user %>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/bookings">Bookings</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Registration</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/shoppings">Shopping</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/aboutus">About Us</a>
+        </li>
       </ul>
-      <ul class="navbar-nav ml-auto">
-        <% if current_user %>
+        <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a class="nav-link" href="#">Hello <%= current_user.name %>!</a>
           </li>
@@ -92,29 +99,33 @@
           <li class="nav-item">
             <%= link_to "Sign Out", destroy_user_session_path, 'data-turbo-method': :delete, class: "nav-link" %>
           </li>
-        <% else %>
+        </ul>
+      <% else %>
+        <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
           </li>
-        <% end %>
-      </ul>
+        </ul>
+      <% end %>
     </div>
   </nav>
 
   <!-- Page Content -->
   <div class="container">
-    
     <% if current_user %>
-   
- <a class="nav-link" href="/bookings">Bookings</a>
+      <div>
+        <p style="float: left;">Your paragraph text here</p>
+        <img src="https://via.placeholder.com/150" alt="Placeholder Image" style="float: right; width: 100px; height: 100px;">
+        <div style="clear: both;"></div> <!-- Clear floats -->
+        <a class="nav-link" href="/bookings">Bookings</a>
+      </div>
     <% else %>
-    <h1 class="mt-5">WELCOME TO OUR WEBSITE</h1>
-    <p class="lead">LETS PLAY FUTSAL</p>
-      <p>GET STARTED BY SIGNING UP AND LOGGING IN </p>
-      
+      <h1 class="mt-5">WELCOME TO OUR WEBSITE</h1>
+      <p class="lead">LETS PLAY FUTSAL</p>
+      <p>GET STARTED BY SIGNING UP AND LOGGING IN</p>
     <% end %>
   </div>
    
@@ -129,5 +140,3 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body> 
 </html>
-
-

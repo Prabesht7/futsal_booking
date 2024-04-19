@@ -36,11 +36,30 @@
   <% end %>
   </tbody>
 </table>
+<div>
+    <%= link_to 'New Booking', new_booking_path, class: 'new-booking-link' %>
+  </div>
+<div class="flex-container">
+  
+  <div>
+    <%= link_to 'Back', "/home" %>
+  </div>
+</div>
 
-<%= link_to 'New Booking', new_booking_path, class: 'new-booking-link' %>
+
+
 
 
 <style>
+  .flex-container {
+  position: fixed; /* or absolute if you want it positioned relative to a parent element */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+}
+
     table {
         width: 100%;
         border-collapse: collapse;

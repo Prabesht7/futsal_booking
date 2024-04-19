@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Booking</title>
     <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
 </head>
 <body>
     <div class="container">
-        <div class="booking-form">
             <%= form_with(model: @booking, local: true, class: "booking-form") do |form| %>
                 <% if @booking.errors.any? %>
                     <div id="error_explanation" class="overlay">
@@ -55,75 +53,71 @@
                     <%= form.submit %>
                 </div>
             <% end %>
-        </div>
+
     </div>
 </body>
 </html>
 <style>
   body {
-    background-color: #f6c492; /* Background color of the page */
+    background-color: #f6c492;
+    font-family: Arial, sans-serif;
+    color: #333; /* Text color */
+    margin: 0;
+    padding: 0;
 }
 
 .container {
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
+    min-height: 100vh;
 }
 
 .booking-form {
-    max-width: 500px; /* Maximum width of the form */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Adds a 20px gap between child elements */
     width: 100%;
+    max-width: 500px;
     padding: 20px;
+    margin: 20px auto; /* Centers the form horizontally */
     border: 1px solid #ddd;
     border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    font-family: 'Comic Sans MS', cursive; /* Font change */
-    color: white; /* Text color */
 }
 
-.overlay {
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background for overlay */
-    color: white; /* Text color for overlay */
-}
 
-.field {
-    margin-bottom: 25px;
-}
-
-.field label {
+.booking-form label {
     display: block;
     font-weight: bold;
-    margin-bottom: 5px;
 }
 
-.field input[type="text"],
-.field input[type="email"],
-.field input[type="number"],
-.field input[type="datetime-local"] {
-    width: 100%;
+.booking-form input[type="text"],
+.booking-form input[type="email"],
+.booking-form input[type="number"],
+.booking-form input[type="datetime-local"] {
+    width: calc(100% - 20px);
     padding: 10px;
+    margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
     transition: border-color 0.3s ease;
 }
 
-.field input[type="text"]:focus,
-.field input[type="email"]:focus,
-.field input[type="number"]:focus,
-.field input[type="datetime-local"]:focus {
+.booking-form input[type="text"]:focus,
+.booking-form input[type="email"]:focus,
+.booking-form input[type="number"]:focus,
+.booking-form input[type="datetime-local"]:focus {
     border-color: #4CAF50;
 }
 
-.actions {
+.booking-form .actions {
     text-align: center;
 }
 
-.actions input[type="submit"] {
+.booking-form .actions input[type="submit"] {
     padding: 12px 24px;
     background-color: #4CAF50;
     color: white;
@@ -133,7 +127,7 @@
     transition: background-color 0.3s ease;
 }
 
-.actions input[type="submit"]:hover {
+.booking-form .actions input[type="submit"]:hover {
     background-color: #45a049;
 }
 

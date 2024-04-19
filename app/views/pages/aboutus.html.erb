@@ -13,8 +13,9 @@
       margin: 0;
       padding: 0;
       background-color: #f6c492;
-     
       color: #000000; /* Text color */
+      display: flex;
+      flex-direction: column;
     }
 
     header {
@@ -33,7 +34,7 @@
     section {
       margin-bottom: 30px;
       flex-basis: 48%;
-       text-align: left; /* Align text to the left */
+      text-align: left; /* Align text to the left */
     }
 
     h1, h2, h3, h4 { /* Apply the font changes to all headings */
@@ -42,11 +43,10 @@
 
     p {
       line-height: 1.6;
-     
       font-family: 'Comic Sans MS', cursive; /* Change to a beautiful font */
     }
 
-      footer {
+    footer {
       background-color: #333;
       color: #fff;
       text-align: center;
@@ -55,31 +55,35 @@
     }
 
     img {
-  max-width: 100%;
-  display: block;
-  border-radius: 20px; /* Apply a border radius for a beautiful frame */
-  margin-left: auto; /* Move the image to the right */
-  margin-right: 0; /* Set margin-right to 0 */
-  margin-top: auto; /* Center vertically */
-  margin-bottom: auto; /* Center vertically */
-}
+      max-width: 100%;
+      display: block;
+      border-radius: 20px; /* Apply a border radius for a beautiful frame */
+      margin-left: auto; /* Move the image to the right */
+      margin-right: 0; /* Set margin-right to 0 */
+      margin-top: auto; /* Center vertically */
+      margin-bottom: auto; /* Center vertically */
+    }
 
     .team-image {
       flex-basis: 48%;
       max-width: 100%;
-  display: block;
-  border-radius: 20px; /* Apply a border radius for a beautiful frame */
-  margin-left: auto; /* Move the image to the right */
-  margin-right: 0; /* Set margin-right to 0 */
-  margin-top: auto; /* Center vertically */
-  margin-bottom: auto; /* Center vertically */
+      display: block;
+      border-radius: 20px; /* Apply a border radius for a beautiful frame */
+      margin-left: auto; /* Move the image to the right */
+      margin-right: 0; /* Set margin-right to 0 */
+      margin-top: auto; /* Center vertically */
+      margin-bottom: auto; /* Center vertically */
     }
   </style>
 </head>
 <body>
-  
   <header>
-    <h1>About Us</h1>
+    <div style="display: flex; align-items: center;">
+      <div>
+        <%= link_to 'Back', "/home" %>
+      </div>
+      <h1 style="margin-left:220px;">About Us</h1>
+    </div>
   </header>
   <main>
     <section>
@@ -95,12 +99,11 @@
     </section>
   </main>
   <p>Follow us on social media:</p>
-    <p><i class="fab fa-facebook"></i> <a href="https://www.facebook.com/your-futsal-page" style="color: #fff;">Facebook</a></p>
-    <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/your-futsal-page" style="color: #fff;">Instagram</a></p>
-    <p><i class="fab fa-twitter"></i> <a href="https://twitter.com/your-futsal-page" style="color: #fff;">Twitter</a></p>
+  <p><i class="fab fa-facebook"></i> <a href="https://www.facebook.com/your-futsal-page" style="color: #fff;">Facebook</a></p>
+  <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/your-futsal-page" style="color: #fff;">Instagram</a></p>
+  <p><i class="fab fa-twitter"></i> <a href="https://twitter.com/your-futsal-page" style="color: #fff;">Twitter</a></p>
   <footer>
     <p>&copy; 2024 Your Company Name. All rights reserved.</p>
-    
   </footer>
 </body>
 </html>
