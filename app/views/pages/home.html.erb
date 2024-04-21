@@ -6,42 +6,52 @@
   <title>Home</title>
   <!-- Bootstrap CSS -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+ 
   <style>
     body {
       padding-top: 60px; /* Adjust body padding to accommodate fixed navbar */
-      background-image: url("https://images.unsplash.com/photo-1509077613385-f89402467146?q=80&w=1527&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+      /* background-image: url("https://images.unsplash.com/photo-1509077613385-f89402467146?q=80&w=1527&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"); */
+      background-color:#9BCF53;
+      
       background-size: cover;
       background-position: center;
       margin: 0;
       display: flex;
       flex-direction: column; /* Ensure the body is a column */
       min-height: 100vh; /* Ensure body takes at least the height of the viewport */
+       font-family: 'Comic Sans MS', cursive;
+      
     }
     .navbar {
-      background-color: rgba(0,0,0,0.7); /* Add transparency to navbar */
+      background-color: #294B29; /* Add transparency to navbar */
     }
     .navbar-nav {
       margin-left: 250px;
       display: flex;
       justify-content: space-between; /* Push items to left and right */
       align-items: center; /* Align items vertically */
+   
     }
     .navbar-nav .nav-item {
       display: inline-block;
       text-align: center;
+      font-family: 'Comic Sans MS', cursive;
     }
     .container {
-      border-radius: 10px;
-      padding: 20px;
-      text-align: center;
-      margin-top: 10rem;
-      display: flex; /* Use flexbox */
-      flex-direction: column; /* Stack children vertically */
-      flex: 1; /* Take remaining space */
-    }
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  margin-top: 10rem;
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Stack children vertically */
+  flex: 1; /* Take remaining space */
+  font-family: 'Comic Sans MS', cursive;
+  background-image: none; /* Remove background image */
+}
+
     .container h1,
     .container p {
-      color: black;
+      color:white;
       font-size: 24px;
       font-weight: bold;
       font-family: 'Comic Sans MS', cursive;
@@ -49,21 +59,48 @@
     .nav-item {
       font-weight: bold;
     }
+    .nav-item,a{
+      color:white;
+    }
     footer {
-      background-color: #333;
+      background-color: #294B29;
       color: #fff;
       text-align: center;
       padding: 1px 0;
       width: 100%;
       position: fixed;
       bottom: 0;
+      font-family: 'Comic Sans MS', cursive;
     }
+    .user{
+      display:flex;
+      margin-top:-180px;
+    }
+    .paragraph{
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      margin-right:50px;
+    }
+    .booking{
+      background-color:#294B29;
+    
+      border-radius:10px;
+      width:150px;
+      margin-bottom:100px;
+      font-size:25px;
+    }
+   
+  
+   
   </style>
+
 </head>
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <nav class="navbar navbar-expand-md  fixed-top">
     <a class="navbar-brand" href="#">Shantinagar Futsal</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
       aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,8 +113,8 @@
         <li class="nav-item">
           <a class="nav-link" href="/home">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/bookings">Bookings</a>
+        <li class="nav-item" >
+          <a class="nav-link"  href="/bookings">Bookings</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Registration</a>
@@ -116,12 +153,17 @@
   <!-- Page Content -->
   <div class="container">
     <% if current_user %>
-      <div>
-        <p style="float: left;">Your paragraph text here</p>
-        <img src="https://via.placeholder.com/150" alt="Placeholder Image" style="float: right; width: 100px; height: 100px;">
+      <div class="user">
+        <div class="paragraph">
+          <p style="float: left;">We are here for  you to find best solution  futsal booking</p>
+          <div class="shadow rounded btn btn-primary" ><a style="text-decoration: none;" href="/bookings">Bookings</a></div>
+        </div>
+        <img src="https://images.unsplash.com/photo-1546435915-6e69e5bf1568?q=80&w=1348&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Placeholder Image" style="float: right; width: 800px; height: 600px; border:3px solid white;border-radius:10px;">
         <div style="clear: both;"></div> <!-- Clear floats -->
-        <a class="nav-link" href="/bookings">Bookings</a>
+        
       </div>
+      
+      
     <% else %>
       <h1 class="mt-5">WELCOME TO OUR WEBSITE</h1>
       <p class="lead">LETS PLAY FUTSAL</p>

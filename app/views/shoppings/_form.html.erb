@@ -1,17 +1,54 @@
-
 <%= simple_form_for(@shopping) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.input :category %>
-    <%= f.input :price %>
-    <%= f.input :image %>
+    <%= f.input :name, class: "form-control" %>
+    <%= f.input :description, class: "form-control" %>
+    <%= f.input :category, class: "form-control" %>
+    <%= f.input :price, class: "form-control" %>
+    <%= f.input :image, class: "form-control" %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, class: "btn btn-primary" %>
   </div>
 <% end %>
+
+<style>
+  /* Form Container */
+  .form-inputs {
+    margin-bottom: 20px;
+     font-family: 'Comic Sans MS', cursive;
+  }
+
+  /* Form Input Style */
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+  }
+
+  /* Form Actions Container */
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  /* Button Style */
+  .btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    background-color: #0056b3;
+  }
+</style>

@@ -1,12 +1,54 @@
+<style>
+  /* Styling for the "Keep Shopping" button container */
+  .keep-shopping {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  /* Styling for the "Keep Shopping" button */
+  .keep-shopping .button {
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ffdd57;
+    color: #000000;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  /* Hover effect for the "Keep Shopping" button */
+  .keep-shopping .button:hover {
+    background-color: #ffd700;
+  }
+
+  /* Styling for the hr */
+  hr {
+    border-color: #e5e5e5;
+    margin: 40px 0;
+  }
+
+  /* Styling for the total section */
+  .total {
+    margin-top: 40px;
+  }
+
+  /* Styling for the Empty Cart button */
+  .empty-cart-button {
+    margin-top: 20px;
+  }
+</style>
+
 <div class="keep-shopping pv1 mt4 has-text-right">
-  <%= link_to 'Keep Shopping', shopping_path, class: 'button is-warning' %>
+  <%= link_to 'Keep Shopping', '/shoppings', class: 'button is-warning' %>
 </div>
 <hr />
 <section class="section">
   <%= render(@cart.line_items) %>
 
   <div class="columns">
-    <div class="column">
+    <div class="column empty-cart-button">
       <%= button_to 'Empty Cart', @cart, method: :delete, data: { confirm: "Are you sure? " }, class: "button is-danger" %>
     </div>
     <div class="column total has-text-right">

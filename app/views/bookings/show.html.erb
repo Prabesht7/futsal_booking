@@ -1,4 +1,5 @@
-<div class="booking-details">
+<body>
+    <div class="booking-details">
   <h1>Booking Details</h1>
 
   <p><strong>ID:</strong> <%= @booking.id %></p>
@@ -15,15 +16,21 @@
     <%= link_to 'Back', bookings_path %>
   </div>
 </div>
+</body>
 
 <style>
-    .booking-details {
+    body{
+background-color:#9BCF53;
+    }
+    .booking-details{
+        
         max-width: 600px;
         margin: 0 auto;
         padding: 20px;
         border: 1px solid #ddd;
         border-radius: 5px;
         background-color: #f9f9f9;
+        
     }
 
     .booking-details p {
@@ -41,7 +48,7 @@
 
     .booking-details-links a {
         padding: 8px 16px;
-        background-color: #4CAF50;
+        background-color: #294B29;
         color: white;
         text-decoration: none;
         border-radius: 5px;

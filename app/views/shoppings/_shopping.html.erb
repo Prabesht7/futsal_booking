@@ -1,31 +1,49 @@
-<div id="<%= dom_id shopping %>">
-  <p>
-    <strong>Name:</strong>
-    <%= shopping.name %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= shopping.description %>
-  </p>
-
-  <p>
-    <strong>Category:</strong>
-    <%= shopping.category %>
-  </p>
-
-  <p>
-    <strong>Price:</strong>
-    <%= shopping.price %>
-  </p>
-
-  <p>
-    <strong>Image:</strong>
-    <%= image_tag(shopping.image_url(:default)) %>
-  </p>
-
-  <p>
-    <%= button_to 'Add to cart', line_items_path(shopping_id: shopping.id), class: 'button is-warning add-to-cart' %>
-  </p>
-
+<div class="card">
+  <div class="card-content">
+    <p class="title is-4"><strong>Name:</strong> <%= shopping.name %></p>
+    <p><strong>Description:</strong> <%= shopping.description %></p>
+    <p><strong>Category:</strong> <%= shopping.category %></p>
+    <p><strong>Price:</strong> <%= shopping.price %></p>
+  </div>
+  <footer class="card-footer">
+    <p class="card-footer-item">
+      <%= button_to 'Add to cart', line_items_path(shopping_id: shopping.id), class: 'button is-warning add-to-cart' %>
+    </p>
+  </footer>
 </div>
+
+<style>
+  .card {
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(1, 1, 1, 0.1);
+    background-color: #black;
+    padding: 20px;
+  }
+
+  .card-content {
+    margin-bottom: 15px;
+   
+  }
+
+  .card-footer {
+    padding-top: 10px;
+  }
+
+  .button {
+    border-radius: 4px;
+    width:20px;
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+
+  .is-warning {
+   background-color: #294B29;
+    color: white;
+    border: none;
+  }
+
+  .add-to-cart {
+    width: 100%;
+    text-align: center;
+  }
+</style>

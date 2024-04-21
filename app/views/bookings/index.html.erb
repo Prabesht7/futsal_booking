@@ -1,100 +1,201 @@
-<h1>Booking Index</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+     font-family: 'Comic Sans MS', cursive;
+      margin: 0;
+      padding: 0;
+      background-color:#9BCF53;
+    }
 
-<table>
-  <thead>
-  <tr>
-    <th>ID</th>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>Phone</th>
-    <th>Email</th>
-    <th>Start Time</th>
-    <th>Hours</th>
-    <th>Total Time</th>
-    <th>Booking Status</th>
-    <th colspan="3">Actions</th>
-  </tr>
-  </thead>
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+    }
 
-  <tbody>
-  <% @bookings.each do |booking| %>
-    <tr>
-      <td><%= booking.id %></td>
-      <td><%= booking.first_name %></td>
-      <td><%= booking.last_name %></td>
-      <td><%= booking.phone %></td>
-      <td><%= booking.email %></td>
-      <td><%= booking.start_time.strftime("%Y-%m-%d %H:%M:%S") %></td>
-      <td><%= booking.hours %></td>
-      <td><%= booking.total_time.strftime("%Y-%m-%d %H:%M:%S") %></td>
-      <td><%= booking.status_label %></td>
-      <td class="actions">
-        <%= link_to 'Show', booking %>
-        <%= link_to 'Edit', edit_booking_path(booking) %>
-      </td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
-<div>
-    <%= link_to 'New Booking', new_booking_path, class: 'new-booking-link' %>
-  </div>
-<div class="flex-container">
+    .table-container {
+      flex: 1;
+      margin-right: 20px; /* Adjust spacing between table and map */
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #294B29;
+      color:white;
+    }
+
+    tr:nth-child(even) {
+    
+    }
+
+    .actions a {
+      color: #007bff;
+      text-decoration: none;
+      margin-right: 5px;
+    }
+
+    .actions a:hover {
+      text-decoration: underline;
+    }
+
+    .map-container {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+    }
+
+    .map-box {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .map-box iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .image-container {
+  width: 100%;
+  border: 2px solid white;
+  border-radius:10px;
   
-  <div>
-    <%= link_to 'Back', "/home" %>
+  height: 400px;
+  margin-top: 20px;
+  overflow: hidden; /* Optional, hides any image overflow */
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image fills the container without distortion */
+}
+
+
+    .back-link {
+      margin-top: 20px;
+      background-color:#294B29;
+      color:white;
+      padding:5px;
+      border-radius:10px;
+      width:150px;
+      margin-bottom:20px;
+      font-size:20px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+     .back-link,a{
+      color:white;
+     }
+
+    h2 {
+      margin-top: 40px;
+      font-size: 24px;
+    }
+
+    h3 {
+      margin-top: 20px;
+      font-size: 20px;
+    }
+    .new{
+      margin-top:10px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      
+    }
+    .back{
+      text-decoration:none;
+      color:white;
+
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="image-container">
+  <img src="https://images.unsplash.com/photo-1509077613385-f89402467146?q=80&w=1527&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Your Image Description">
+</div>
+ 
+  <div class="table-container">
+    <h2>Bookings History</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th>Start Time</th>
+          <th>Hours</th>
+          <th>Total Time</th>
+          <th>Booking Status</th>
+          <th colspan="2">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @bookings.each do |booking| %>
+        <tr>
+          <td><%= booking.id %></td>
+          <td><%= booking.first_name %></td>
+          <td><%= booking.last_name %></td>
+          <td><%= booking.phone %></td>
+          <td><%= booking.email %></td>
+          <td><%= booking.start_time.strftime("%Y-%m-%d %H:%M:%S") %></td>
+          <td><%= booking.hours %></td>
+          <td><%= booking.total_time.strftime("%Y-%m-%d %H:%M:%S") %></td>
+          <td><%= booking.status_label %></td>
+          <td class="actions">
+            <%= link_to 'Show', booking %>
+            <%= link_to 'Edit', edit_booking_path(booking) %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <div class="new">
+      <%= link_to 'New Booking', new_booking_path, class: 'new-booking-link' %>
+    </div>
   </div>
+
+  </div>
+  <div class="map-container">
+    <div class="map-box">
+      <h3>Location</h3>
+      <!-- Google Maps iframe -->
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.405665946451!2d85.32402621452586!3d27.71724538279378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19a25fae1d6b%3A0x2a48a300ff14efcb!2sKathmandu!5e0!3m2!1sen!2snp!4v1648509612664!5m2!1sen!2snp!center=27.69207432366733,85.34751883092976" width="1000" height="200" style="border-radius:10px;" allowfullscreen="" loading="lazy"></iframe>
+
+    </div>
+ 
+</div>
+
+
+
+<div class="back-link">
+  <a class="back" href="/home">Back</a>
 </div>
 
 
 
 
-
-<style>
-  .flex-container {
-  position: fixed; /* or absolute if you want it positioned relative to a parent element */
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  display: inline-flex;
-  justify-content: space-between;
-}
-
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-bottom: 20px;
-    }
-
-    th, td {
-        border: 1px solid #dddddd;
-        padding: 8px;
-        text-align: left;
-    }
-
-    th {
-        background-color: #f2f2f2;
-    }
-
-    tr:nth-child(even) {
-        background-color: #f2f2f2;
-    }
-
-    .actions {
-        display: flex;
-        gap: 5px;
-    }
-
-    .actions a {
-        padding: 5px 10px;
-        background-color: #4CAF50;
-        color: white;
-        text-decoration: none;
-        border-radius: 3px;
-    }
-
-    .actions a:hover {
-        background-color: #45a049;
-    }
-</style>
-
+</body>
+</html>

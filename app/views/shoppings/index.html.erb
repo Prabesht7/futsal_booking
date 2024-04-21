@@ -1,13 +1,70 @@
+<style>
+  #shoppings {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+  }
+
+  .shopping-card {
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    padding: 20px;
+    flex: 0 1 calc(33.33% - 20px);
+    max-width: calc(33.33% - 20px);
+  }
+
+  .shopping-card-content {
+    margin-bottom: 15px;
+  }
+
+  .shopping-card-footer {
+    padding-top: 10px;
+  }
+
+  .button {
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    
+  }
+
+  .is-warning {
+    background-color: #294B29;
+  cursor:pointer;
+    color: white;
+    border: none;
+  }
+
+  .add-to-cart {
+    width: 100%;
+    text-align: center;
+  }
+</style>
+
 <p style="color: green"><%= notice %></p>
 
-<h1>Shoppings</h1>
+<h1 style="text-align:center;">Shoppings</h1>
 
 <div id="shoppings">
   <% @shoppings.each do |shopping| %>
-    <%= render shopping %>
-    <p>
+    <div class="shopping-card">
+      <div class="shopping-card-content">
+        <p class="title is-4"><strong>Name:</strong> <%= shopping.name %></p>
+        <p><strong>Description:</strong> <%= shopping.description %></p>
+        <p><strong>Category:</strong> <%= shopping.category %></p>
+        <p><strong>Price:</strong> <%= shopping.price %></p>
+      </div>
+      <footer class="shopping-card-footer">
+        <p class="card-footer-item">
+          <%= button_to 'Add to cart', line_items_path(shopping_id: shopping.id), class: 'button is-warning add-to-cart' %>
+        </p>
+         <p>
       <%= link_to "Show this shopping", shopping %>
     </p>
+      </footer>
+    </div>
+   
   <% end %>
 </div>
 
