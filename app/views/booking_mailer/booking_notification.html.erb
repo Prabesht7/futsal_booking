@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+<h1>New Booking Created</h1>
+<p>Hello <%= @admin.name %>,</p>
+<p>A new booking has been created:</p>
+<p>Booking ID: <%= @booking.id %></p>
+<p>Booking Name: <%= @booking.first_name %> <%= @booking.last_name %></p>
+<p>Booking Phone Number: <%= @booking.phone %></p>
+<p>Booking Email: <%= @booking.email %></p>
+<p>Booking Start Time: <%= @booking.start_time %></p>
+<p>Booking Total Hours: <%= @booking.hours %></p>
+<p>Booking Total Time: <%= @booking.total_time %></p>
+</body>
+</html>
