@@ -1,71 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sign up</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign up</title>
+  <style>
+      body {
+          font-family: Arial, sans-serif;
+          background-color: #f4f4f4;
+          margin: 0;
+          padding: 0;
+      }
 
-  .container {
-    max-width: 500px;
-    margin: 50px auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
+      .container {
+          max-width: 500px;
+          margin: 50px auto;
+          background-color: #fff;
+          padding: 20px;
+          border-radius: 10px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
 
-  h2 {
-    text-align: center;
-    color: #333;
-  }
+      h2 {
+          text-align: center;
+          color: #333;
+      }
 
-  .field {
-    margin-bottom: 20px;
-  }
+      .field {
+          margin-bottom: 20px;
+      }
 
-  label {
-    display: block;
-    margin-bottom: 5px;
-    color: #555;
-  }
+      label {
+          display: block;
+          margin-bottom: 5px;
+          color: #555;
+      }
 
-  input[type="text"],
-  input[type="email"],
-  input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-  }
+      input[type="text"],
+      input[type="email"],
+      input[type="password"] {
+          width: 100%;
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          box-sizing: border-box;
+      }
 
-  .actions {
-    text-align: center;
-  }
+      .actions {
+          text-align: center;
+      }
 
-  .actions input[type="submit"] {
-    background-color: #4CAF50; /* Green */
-    color: white;
-    padding: 12px 20px;
-    width:20rem;
-    border: none;
-    border-radius: 25px; /* Rounded corners */
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-  }
+      .actions input[type="submit"] {
+          background-color: #4CAF50; /* Green */
+          color: white;
+          padding: 12px 20px;
+          width:20rem;
+          border: none;
+          border-radius: 25px; /* Rounded corners */
+          cursor: pointer;
+          font-size: 16px;
+          transition: background-color 0.3s ease;
+      }
 
-  .actions input[type="submit"]:hover {
-    background-color: #45a049; /* Darker green */
-  }
-</style>
+      .actions input[type="submit"]:hover {
+          background-color: #45a049; /* Darker green */
+      }
+  </style>
 </head>
 <body>
 
@@ -81,7 +81,7 @@
 
     <div class="field">
       <%= f.label :phone %>
-      <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone" %>
+      <%= f.number_field :phone_number, min: 0, autofocus: true, autocomplete: "phone" %>
     </div>
 
     <div class="field">
