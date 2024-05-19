@@ -62,14 +62,16 @@
         <p><strong>Description:</strong> <%= shopping.description %></p>
         <p><strong>Category:</strong> <%= shopping.category %></p>
         <p><strong>Price:</strong> <%= shopping.price %></p>
-        <p><strong>Image:</strong><%= image_tag(shopping.image_url(:default)) %></p>
+     
       </div>
       <footer class="shopping-card-footer">
         <p class="card-footer-item">
           <%= button_to 'Add to cart', line_items_path(shopping_id: shopping.id), class: 'button is-warning add-to-cart' %>
         </p>
         <p>
+            <% if current_user=="admin" %>
           <%= link_to "Show this shopping", shopping %>
+          <%end%>
         </p>
       </footer>
     </div>
