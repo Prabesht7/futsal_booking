@@ -1,43 +1,49 @@
 <style>
-  /* Styling for the "Keep Shopping" button container */
-  .keep-shopping {
-    margin-top: 20px;
-    display: flex;
-    justify-content: flex-end;
-  }
+    /* Styling for the "Keep Shopping" button container */
+    .keep-shopping {
+        margin-top: 20px;
+        display: flex;
+        justify-content: flex-end;
+    }
 
-  /* Styling for the "Keep Shopping" button */
-  .keep-shopping .button {
-    border-radius: 4px;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #ffdd57;
-    color: #000000;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
+    /* Styling for the "Keep Shopping" button */
+    .keep-shopping .button {
+        border-radius: 4px;
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #ffdd57;
+        color: #000000;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
 
-  /* Hover effect for the "Keep Shopping" button */
-  .keep-shopping .button:hover {
-    background-color: #ffd700;
-  }
+    /* Hover effect for the "Keep Shopping" button */
+    .keep-shopping .button:hover {
+        background-color: #ffd700;
+    }
 
-  /* Styling for the hr */
-  hr {
-    border-color: #e5e5e5;
-    margin: 40px 0;
-  }
+    /* Styling for the hr */
+    hr {
+        border-color: #e5e5e5;
+        margin: 40px 0;
+    }
 
-  /* Styling for the total section */
-  .total {
-    margin-top: 40px;
-  }
+    /* Styling for the total section */
+    .total {
+        margin-top: 40px;
+    }
 
-  /* Styling for the Empty Cart button */
-  .empty-cart-button {
-    margin-top: 20px;
-  }
+    /* Styling for the Empty Cart button */
+    .empty-cart-button {
+        margin-top: 20px;
+    }
+
+    /* Styling for the Place Order button */
+    .place-order-button {
+        margin-top: 20px;
+        text-align: right;
+    }
 </style>
 
 <div class="keep-shopping pv1 mt4 has-text-right">
@@ -49,12 +55,20 @@
 
   <div class="columns">
     <div class="column empty-cart-button">
-      <%= button_to 'Empty Cart', @cart, method: :delete, data: { confirm: "Are you sure? " }, class: "button is-danger" %>
+      <%= button_to 'Empty Cart', @cart, method: :delete, data: { confirm: "Are you sure?" }, class: "button is-danger" %>
     </div>
     <div class="column total has-text-right">
       <h4 class="title is-4">
         <span class="f5 has-text-grey">Total:</span> <%= number_to_currency(@cart.total_price) %>
       </h4>
+    </div>
+  </div>
+
+  <div class="columns">
+    <div class="column place-order-button">
+      <%= form_with url: orders_path, method: :post do %>
+        <%= submit_tag 'Place Order', class: 'button is-primary' %>
+      <% end %>
     </div>
   </div>
 </section>
