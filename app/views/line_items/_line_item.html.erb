@@ -4,7 +4,7 @@
   </div>
   <div class="col-2" style="flex: 0 0 16.666667%; max-width: 16.666667%;">
     <figure class="figure">
-      <%# <%= image_tag(line_item.shopping.image_url(:thumb), class: "figure-img img-fluid rounded") %> 
+      <%# <%= image_tag(line_item.shopping.image_url(:thumb), class: "figure-img img-fluid rounded") %>
     </figure>
   </div>
   <div class="col-9" style="flex: 0 0 75%; max-width: 75%;">
@@ -13,6 +13,10 @@
       <div class="col-9" style="flex: 0 0 75%; max-width: 50%;">
         <p class="mb-0" style="margin-bottom: 0;"><%= truncate(line_item.shopping.description, length: 140) %></p>
       </div>
+      <div>
+        <p><strong>Image:</strong><%= image_tag(line_item.shopping.image_url(:default)) %></p>
+      </div>
+
       <div class="col-3 text-right" style="flex: 0 0 25%; max-width: 25%; text-align: right;">
         <strong><%= number_to_currency(line_item.total_price) %></strong>
       </div>
