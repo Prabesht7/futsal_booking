@@ -6,53 +6,49 @@
 <title>Sign up</title>
 <style>
   body {
-    background-image: url("https://img.freepik.com/premium-photo/football-futsal-ball-man-team-player-indoor-soccer-sports-hall-advertising-quality-generative-ai_117038-8073.jpg?w=740");
-    font-family: 'Comic Sans MS', cursive;
-    background-color: rgba(244, 244, 244, 0.5); /* semi-transparent background */
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    background-repeat: no-repeat;
-    background-size: cover;
   }
 
   .container {
     max-width: 500px;
     margin: 50px auto;
-    background-color: rgba(0, 128, 128, 0.7); /* semi-transparent background */
+    background-color: #fff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
-  
 
-  h2 {
-    text-align: center;
-    color: #333;
-  }
+      h2 {
+          text-align: center;
+          color: #333;
+      }
 
-  .field {
-    margin-bottom: 20px;
-  }
+      .field {
+          margin-bottom: 20px;
+      }
 
   label {
     display: block;
     margin-bottom: 5px;
-    color: #000000;
+    color: #555;
   }
 
-  input[type="text"],
-  input[type="email"],
-  input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-  }
+      input[type="text"],
+      input[type="email"],
+      input[type="password"] {
+          width: 100%;
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          box-sizing: border-box;
+      }
 
-  .actions {
-    text-align: center;
-  }
+      .actions {
+          text-align: center;
+      }
 
   .actions input[type="submit"] {
     background-color: #4CAF50; /* Green */
@@ -65,22 +61,11 @@
     font-size: 16px;
     transition: background-color 0.3s ease;
   }
-  footer {
-      background-color: #333;
-      color: #fff;
-      text-align: center;
-      padding: 1px 0;
-      bottom: 0;
-      width: 100%;
-      height:50px;
-      
-    }
 
-
-  .actions input[type="submit"]:hover {
-    background-color: #45a049; /* Darker green */
-  }
-</style>
+      .actions input[type="submit"]:hover {
+          background-color: #45a049; /* Darker green */
+      }
+  </style>
 </head>
 <body>
 
@@ -96,7 +81,7 @@
 
     <div class="field">
       <%= f.label :phone %>
-      <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone" %>
+      <%= f.number_field :phone_number, min: 0, autofocus: true, autocomplete: "phone" %>
     </div>
 
     <div class="field">
