@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Order Confirmation</h1>
+<p>Hi <%= @user.email %>,</p>
+<p>Thank you for your order! Here are the details:</p>
+<ul>
+  <% @order.order_items.each do |item| %>
+    <li>
+      <%= item.shopping.name %> - Quantity: <%= item.quantity %>
+      <p><strong>Name:</strong> <%= item.shopping.name %></p>
+      <p><strong>Description:</strong> <%= item.shopping.description %></p>
+      <p><strong>Quantity:</strong> <%= item.quantity %></p>
+      <p><strong>Price:</strong> <%= number_to_currency(item.shopping.price) %></p>
+      <p><strong>Category:</strong> <%= item.shopping.category %></p>
+    </li>
+  <% end %>
+</ul>
+<p>Total Price: <%= number_to_currency(@order.total_price) %></p>
+</body>
+</html>

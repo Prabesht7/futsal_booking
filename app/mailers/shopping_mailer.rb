@@ -1,5 +1,8 @@
 class ShoppingMailer < ApplicationMailer
-  def cart_deleted_notification(user_email)
-    mail to: user_email, subject: "Your Cart Has Been Deleted"
+  def order_confirmation(order)
+    @order = order
+    @user = @order.user
+    mail(to: @user.email, subject: 'Order Confirmation')
   end
 end
+
