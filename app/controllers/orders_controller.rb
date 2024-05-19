@@ -11,8 +11,7 @@ class OrdersController < ApplicationController
     end
 
     if @order.save
-      # Optionally, clear the cart after order creation
-      @cart.line_items.destroy_all
+      ShoppingMailer.order_confirmation(@order).deliver_now
 
       redirect_to @order, notice: 'Order was successfully created.'
     else
