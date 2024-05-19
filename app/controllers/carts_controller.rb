@@ -50,8 +50,14 @@ class CartsController < ApplicationController
 
   # DELETE /carts/1 or /carts/1.json
   def destroy
-    @cart.destroy if @cart.id == session[:cart_id]
-    session[:cart_id] = nil
+    if @cart.id == session[:cart_id]
+      user_email = @cart.user.email # Assuming you have a user associated with the cart
+      @cart.destroy
+      session[:cart_id] = nil
+
+      # Send cart deleted notification email
+      ShoppingMailer.cart_deleted_notification(user_email).deliver_now
+    end
 
     respond_to do |format|
       format.html { redirect_to carts_url, notice: "Cart was successfully destroyed." }

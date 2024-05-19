@@ -21,6 +21,8 @@ class BookingsController < ApplicationController
       @booking = Booking.new(booking_params)
       @booking.calculate_total_time
       if @booking.save
+        BookingMailer.booking_confirmation(@booking).deliver_now
+
         redirect_to @booking
       else
         render 'new'
