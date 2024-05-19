@@ -65,6 +65,12 @@ class CartsController < ApplicationController
     end
   end
 
+  def item_count
+    cart = Cart.find_by(id: session[:cart_id])
+    count = cart ? cart.line_items.count : 0
+    render json: { count: count }
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cart
