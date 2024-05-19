@@ -4,6 +4,7 @@
     <p><strong>Description:</strong> <%= shopping.description %></p>
     <p><strong>Category:</strong> <%= shopping.category %></p>
     <p><strong>Price:</strong> <%= shopping.price %></p>
+    <p><strong>Image:</strong><%= image_tag(shopping.image_url(:default)) %></p>
   </div>
   <footer class="card-footer">
     <p class="card-footer-item">
