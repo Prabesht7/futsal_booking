@@ -1,0 +1,39 @@
+<h1>Order Details</h1>
+<p>
+  <strong>Order User Details:</strong>
+  <%= @order.user.email %>
+</p>
+
+<h2>Items:</h2>
+<ul>
+  <% @order.order_items.each do |item| %>
+    <li>
+      <%= item.shopping.name %> - Quantity: <%= item.quantity %>
+      <p><strong>Name:</strong><%= item.shopping.name %></p>
+      <p><strong>Description:</strong><%= item.shopping.description %></p>
+      <p><strong>Quantity:</strong><%= item.quantity %></p>
+      <p><strong>Image:</strong><%= image_tag(item.shopping.image_url(:default)) %></p>
+      <p><strong>Price:</strong><%= item.shopping.price %></p>
+      <p><strong>Category:</strong><%= item.shopping.category %></p>
+    </li>
+  <% end %>
+</ul>
+
+<style>
+    /* Styling for the Delete Order button */
+    .actions .button.is-danger {
+        margin-top: 20px;
+        background-color: #ff3860; /* Bulma danger color */
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+    }
+
+    .actions .button.is-danger:hover {
+        background-color: #ff2b56; /* Slightly darker shade for hover effect */
+    }
+
+</style>

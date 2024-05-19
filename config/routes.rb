@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   devise_for :users
   resources :bookings
 
+  Rails.application.routes.draw do
+    resources :orders, only: [:create, :show, :destroy]
+  end
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Route for "/aboutus"

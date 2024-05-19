@@ -4,6 +4,8 @@ class Shopping < ApplicationRecord
   has_many :line_items
   mount_uploader :image, ImageUploader
   serialize :image, JSON
+  has_many :order_items
+  has_many :orders, through: :order_items
 
   validate :name, :category
   validates :description, length: { maximum: 1000, too_long: "%{count} characters is the maximum aloud. "}
