@@ -16,7 +16,7 @@ class ShoppingsController < ApplicationController
     if current_user.admin?
       @shopping = Shopping.new
     else
-      redirect_to root_path, alert: "You are not authorized to create new shoppings."
+      redirect_to root_path, alert: "You are not authorized to create."
     end
   end
 
@@ -26,39 +26,51 @@ class ShoppingsController < ApplicationController
 
   # POST /shoppings or /shoppings.json
   def create
-    @shopping = Shopping.new(shopping_params)
+    if current_user.admin?
+      @shopping = Shopping.new(shopping_params)
 
-    respond_to do |format|
-      if @shopping.save
-        format.html { redirect_to shopping_url(@shopping), notice: "Shopping was successfully created." }
-        format.json { render :show, status: :created, location: @shopping }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @shopping.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @shopping.save
+          format.html { redirect_to shopping_url(@shopping), notice: "Shopping was successfully created." }
+          format.json { render :show, status: :created, location: @shopping }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @shopping.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      redirect_to root_path, alert: "You are not authorized to create."
     end
   end
 
   # PATCH/PUT /shoppings/1 or /shoppings/1.json
   def update
-    respond_to do |format|
-      if @shopping.update(shopping_params)
-        format.html { redirect_to shopping_url(@shopping), notice: "Shopping was successfully updated." }
-        format.json { render :show, status: :ok, location: @shopping }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @shopping.errors, status: :unprocessable_entity }
+    if current_user.admin?
+      respond_to do |format|
+        if @shopping.update(shopping_params)
+          format.html { redirect_to shopping_url(@shopping), notice: "Shopping was successfully updated." }
+          format.json { render :show, status: :ok, location: @shopping }
+        else
+          format.html { render :edit, status: :unprocessable_entity }
+          format.json { render json: @shopping.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      redirect_to root_path, alert: "You are not authorized to update."
     end
   end
 
   # DELETE /shoppings/1 or /shoppings/1.json
   def destroy
-    @shopping.destroy
+    if current_user.admin?
+      @shopping.destroy
 
-    respond_to do |format|
-      format.html { redirect_to shoppings_url, notice: "Shopping was successfully destroyed." }
-      format.json { head :no_content }
+      respond_to do |format|
+        format.html { redirect_to shoppings_url, notice: "Shopping was successfully destroyed." }
+        format.json { head :no_content }
+      end
+    else
+      redirect_to root_path, alert: "You are not authorized to delete."
     end
   end
 
